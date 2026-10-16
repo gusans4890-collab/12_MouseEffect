@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>마우스 이펙트</title>
+
+        <link rel="stylesheet" href="css/font.css" />
+        <link rel="stylesheet" href="css/mouse.css" />
+
+        <style>
+            /* mouseType */
+            .mouse_wrap {
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                color: #fff;
+                overflow: hidden;
+                cursor: none;
+                background: url(img/bg01.jpg) no-repeat center / cover;
+                position: relative;
+            }
+
+            .mouse_wrap p {
+                font-size: 2vw;
+                line-height: 2;
+                font-weight: 300;
+            }
+            .mouse_wrap p:last-child {
+                font-size: 3vw;
+                font-weight: 300;
+            }
+            .mouse_wrap p span {
+                border-bottom: 0.15vw dashed #00e55f;
+                color: #00e55f;
+            }
+            @media (max-width: 800px) {
+                .mouse_wrap p {
+                    padding: 0 20px;
+                    font-size: 24px;
+                    line-height: 1.5;
+                    text-align: center;
+                    margin-bottom: 10px;
+                }
+                .mouse_wrap p:last-child {
+                    font-size: 40px;
+                    line-height: 1.5;
+                    text-align: center;
+                    word-break: keep-all;
+                }
+            }
+            .mouse_cursor {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 20px;
+                height: 20px;
+                z-index: 9999;
+                border-radius: 50%;
+                background-color: #ffffff;
+                transition: transform 0.3s;
+                /* transform: translate(-50%, -50%); */
+                user-select: none;
+                pointer-events: none;
+                mix-blend-mode: difference;
+                /* mix-blend-mode: color-burn; */
+            }
+            .mouse_cursor.active {
+                transform: scale(20);
+                /* transform: translate(-50%, -50%) scale(20); */
+            }
+
+            .mouse_cursor.show {
+                background-color: #f11313;
+                transform: scale(10);
+            }
+            .mouse_info {
+                position: absolute;
+                left: 20px;
+                bottom: 10px;
+                font-size: 14px;
+                line-height: 1.6;
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body class="img13 bg01">
+        <header id="header">
+            <h1><a href="mouseEffect.html">Javascript Mouse Effect03</a></h1>
+            <p>마우스 이펙트 - 블랜딩 효과</p>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <section id="mouseType">
+                <div class="mouse_cursor"></div>
+                <div class="mouse_wrap">
+                    <p>I <span>dream</span> my painting and I paint my <span>dream</span></p>
+                    <p>
+                        I turn my <span>dreams</span> into paintings and <span>my paintings</span> into
+                        <span>dreams</span>
+                    </p>
+                </div>
+            </section>
+            <div class="mouse_info">
+                <ul>
+                    <li>pageX : <span class="pageX">0</span>px</li>
+                    <li>pageY : <span class="pageY">0</span>px</li>
+                </ul>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <div class="footer_btn">열공합시다!</div>
+        </footer>
+        <!-- //footer -->
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+        <script src="js/mEffect03.js"></script>
+    </body>
+</html>
